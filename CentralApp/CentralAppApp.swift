@@ -11,7 +11,7 @@ import SwiftUI
 struct CentralAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BTCentralView().environmentObject(BTCentralManager())
         }
     }
 }

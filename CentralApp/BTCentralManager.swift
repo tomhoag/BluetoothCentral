@@ -30,7 +30,7 @@ public class BTCentralManager: NSObject, ObservableObject {
     @Published var redReady = false
     @Published var greenReady = false
     @Published var blueReady = false
-    
+        
     public override init() {
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil)
@@ -96,7 +96,6 @@ extension BTCentralManager: CBCentralManagerDelegate {
         
         deviceMessage = ""
         statusMessage = "disovered peripheral"
-        print(deviceMessage ?? "", statusMessage ?? "")
     }
     
     public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
@@ -104,8 +103,6 @@ extension BTCentralManager: CBCentralManagerDelegate {
             statusMessage = "connected to peripheral"
             peripheral.discoverServices([BTPeripheralManager.serviceUUID])
             
-            print(deviceMessage ?? "", statusMessage ?? "")
-
         }
     }
     
@@ -184,7 +181,6 @@ extension BTCentralManager: CBPeripheralDelegate {
                     print("unknown char")
                 }
                 statusMessage = "read peripheral"
-                print(deviceMessage ?? "", statusMessage ?? "")
                 
             }
         }
@@ -210,7 +206,6 @@ extension BTCentralManager: CBPeripheralDelegate {
                 }
                 statusMessage = "read peripheral"
                 
-                print(deviceMessage ?? "", statusMessage ?? "")
                 
             }
         }

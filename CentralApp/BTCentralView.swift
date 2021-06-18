@@ -12,13 +12,21 @@ struct BTCentralView: View {
     @EnvironmentObject var btcentral:BTCentralManager
     @State private var msg:String = ""
     
+    var isAppClip:Bool = false
+    
     var body: some View {
         VStack(alignment: .center) {
-            Text("BLE Central App")
+            Text(isAppClip ? "BLE Central App Clip" : "BLE Central App")
+                .font(.largeTitle)
             
             Color(.sRGB, red: btcentral.redValue, green: btcentral.greenValue, blue: btcentral.blueValue, opacity: 1.0)
                 .frame(width: 200, height: 200, alignment: .center)
-                .border(Color.black, width: 1)
+                .border(Color(.sRGB,
+                              red: 1 - btcentral.redValue,
+                              green: 1 - btcentral.greenValue,
+                              blue: 1 - btcentral.blueValue,
+                              opacity: 1.0),
+                        width: 1)
                 .padding()
             
             VStack {
@@ -82,6 +90,6 @@ struct BTCentralView: View {
 
 struct CentralView_Previews: PreviewProvider {
     static var previews: some View {
-        BTCentralView().environmentObject(BTCentralManager())
+        BTCentralView(isAppClip: false).environmentObject(BTCentralManager())
     }
 }

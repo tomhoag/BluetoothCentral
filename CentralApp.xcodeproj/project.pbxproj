@@ -14,7 +14,39 @@
 		AB886995267B95530015D53C /* BTCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB886993267B95530015D53C /* BTCentralManager.swift */; };
 		AB886996267B95530015D53C /* BTCentralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB886994267B95530015D53C /* BTCentralView.swift */; };
 		AB88699E267B962D0015D53C /* BTPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88699D267B962D0015D53C /* BTPeripheralManager.swift */; };
+		AB8869CA267BD7830015D53C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB8869C9267BD7830015D53C /* Assets.xcassets */; };
+		AB8869CD267BD7830015D53C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB8869CC267BD7830015D53C /* Preview Assets.xcassets */; };
+		AB8869D2267BD7830015D53C /* CentralAppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = AB8869C3267BD7800015D53C /* CentralAppClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AB8869D8267BDA5A0015D53C /* CentralAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB886969267B95010015D53C /* CentralAppApp.swift */; };
+		AB8869D9267BDB0B0015D53C /* BTCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB886993267B95530015D53C /* BTCentralManager.swift */; };
+		AB8869DA267BDB230015D53C /* BTPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88699D267B962D0015D53C /* BTPeripheralManager.swift */; };
+		AB8869DB267BDB2A0015D53C /* BTCentralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB886994267B95530015D53C /* BTCentralView.swift */; };
+		AB8869DD267CDDD70015D53C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8869C7267BD7800015D53C /* ContentView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AB8869D0267BD7830015D53C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB88695E267B95010015D53C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB8869C2267BD7800015D53C;
+			remoteInfo = CentralAppClip;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AB8869D6267BD7830015D53C /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				AB8869D2267BD7830015D53C /* CentralAppClip.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AB886966267B95010015D53C /* CentralApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CentralApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +58,25 @@
 		AB886993267B95530015D53C /* BTCentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCentralManager.swift; sourceTree = "<group>"; };
 		AB886994267B95530015D53C /* BTCentralView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCentralView.swift; sourceTree = "<group>"; };
 		AB88699D267B962D0015D53C /* BTPeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BTPeripheralManager.swift; path = ../../PeripheralApp/PeripheralApp/BTPeripheralManager.swift; sourceTree = "<group>"; };
+		AB8869C3267BD7800015D53C /* CentralAppClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CentralAppClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB8869C5267BD7800015D53C /* CentralAppClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralAppClipApp.swift; sourceTree = "<group>"; };
+		AB8869C7267BD7800015D53C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AB8869C9267BD7830015D53C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB8869CC267BD7830015D53C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AB8869CE267BD7830015D53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB8869CF267BD7830015D53C /* CentralAppClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CentralAppClip.entitlements; sourceTree = "<group>"; };
+		AB8869D7267BD7D20015D53C /* CentralApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CentralApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AB886963267B95010015D53C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB8869C0267BD7800015D53C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				AB886968267B95010015D53C /* CentralApp */,
+				AB8869C4267BD7800015D53C /* CentralAppClip */,
 				AB886967267B95010015D53C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				AB886966267B95010015D53C /* CentralApp.app */,
+				AB8869C3267BD7800015D53C /* CentralAppClip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,6 +107,7 @@
 		AB886968267B95010015D53C /* CentralApp */ = {
 			isa = PBXGroup;
 			children = (
+				AB8869D7267BD7D20015D53C /* CentralApp.entitlements */,
 				AB88699D267B962D0015D53C /* BTPeripheralManager.swift */,
 				AB886993267B95530015D53C /* BTCentralManager.swift */,
 				AB886994267B95530015D53C /* BTCentralView.swift */,
@@ -78,6 +128,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		AB8869C4267BD7800015D53C /* CentralAppClip */ = {
+			isa = PBXGroup;
+			children = (
+				AB8869C5267BD7800015D53C /* CentralAppClipApp.swift */,
+				AB8869C7267BD7800015D53C /* ContentView.swift */,
+				AB8869C9267BD7830015D53C /* Assets.xcassets */,
+				AB8869CE267BD7830015D53C /* Info.plist */,
+				AB8869CF267BD7830015D53C /* CentralAppClip.entitlements */,
+				AB8869CB267BD7830015D53C /* Preview Content */,
+			);
+			path = CentralAppClip;
+			sourceTree = "<group>";
+		};
+		AB8869CB267BD7830015D53C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AB8869CC267BD7830015D53C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,15 +159,34 @@
 				AB886962267B95010015D53C /* Sources */,
 				AB886963267B95010015D53C /* Frameworks */,
 				AB886964267B95010015D53C /* Resources */,
+				AB8869D6267BD7830015D53C /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AB8869D1267BD7830015D53C /* PBXTargetDependency */,
 			);
 			name = CentralApp;
 			productName = CentralApp;
 			productReference = AB886966267B95010015D53C /* CentralApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		AB8869C2267BD7800015D53C /* CentralAppClip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB8869D3267BD7830015D53C /* Build configuration list for PBXNativeTarget "CentralAppClip" */;
+			buildPhases = (
+				AB8869BF267BD7800015D53C /* Sources */,
+				AB8869C0267BD7800015D53C /* Frameworks */,
+				AB8869C1267BD7800015D53C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CentralAppClip;
+			productName = CentralAppClip;
+			productReference = AB8869C3267BD7800015D53C /* CentralAppClip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
 		};
 /* End PBXNativeTarget section */
 
@@ -108,6 +198,9 @@
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					AB886965267B95010015D53C = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					AB8869C2267BD7800015D53C = {
 						CreatedOnToolsVersion = 12.5;
 					};
 				};
@@ -126,6 +219,7 @@
 			projectRoot = "";
 			targets = (
 				AB886965267B95010015D53C /* CentralApp */,
+				AB8869C2267BD7800015D53C /* CentralAppClip */,
 			);
 		};
 /* End PBXProject section */
@@ -137,6 +231,15 @@
 			files = (
 				AB886971267B95030015D53C /* Preview Assets.xcassets in Resources */,
 				AB88696E267B95030015D53C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB8869C1267BD7800015D53C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB8869CD267BD7830015D53C /* Preview Assets.xcassets in Resources */,
+				AB8869CA267BD7830015D53C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +258,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AB8869BF267BD7800015D53C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB8869DB267BDB2A0015D53C /* BTCentralView.swift in Sources */,
+				AB8869DD267CDDD70015D53C /* ContentView.swift in Sources */,
+				AB8869DA267BDB230015D53C /* BTPeripheralManager.swift in Sources */,
+				AB8869D8267BDA5A0015D53C /* CentralAppApp.swift in Sources */,
+				AB8869D9267BDB0B0015D53C /* BTCentralManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB8869D1267BD7830015D53C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB8869C2267BD7800015D53C /* CentralAppClip */;
+			targetProxy = AB8869D0267BD7830015D53C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		AB886973267B95030015D53C /* Debug */ = {
@@ -277,8 +400,10 @@
 		AB886976267B95030015D53C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CentralApp/CentralApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CentralApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 4MUC8K263B;
@@ -291,6 +416,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.squarepi.CentralApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -299,8 +425,10 @@
 		AB886977267B95030015D53C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CentralApp/CentralApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CentralApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 4MUC8K263B;
@@ -313,6 +441,56 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.squarepi.CentralApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AB8869D4267BD7830015D53C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CentralAppClip/CentralAppClip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CentralAppClip/Preview Content\"";
+				DEVELOPMENT_TEAM = 4MUC8K263B;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = CentralAppClip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.squarepi.CentralApp.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB8869D5267BD7830015D53C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CentralAppClip/CentralAppClip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CentralAppClip/Preview Content\"";
+				DEVELOPMENT_TEAM = 4MUC8K263B;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = CentralAppClip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.squarepi.CentralApp.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,6 +513,15 @@
 			buildConfigurations = (
 				AB886976267B95030015D53C /* Debug */,
 				AB886977267B95030015D53C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB8869D3267BD7830015D53C /* Build configuration list for PBXNativeTarget "CentralAppClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB8869D4267BD7830015D53C /* Debug */,
+				AB8869D5267BD7830015D53C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

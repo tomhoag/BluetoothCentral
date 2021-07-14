@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB376DD2269CD6CB0070F26F /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB376DCF269CD6740070F26F /* SpotifyiOS.framework */; };
+		AB376DE8269DE3CE0070F26F /* SpotifyTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB376DE7269DE3CE0070F26F /* SpotifyTrackInfo.swift */; };
+		AB376DE9269DE46E0070F26F /* SpotifyTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB376DE7269DE3CE0070F26F /* SpotifyTrackInfo.swift */; };
 		AB88696A267B95010015D53C /* CentralAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB886969267B95010015D53C /* CentralAppApp.swift */; };
 		AB88696C267B95010015D53C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88696B267B95010015D53C /* ContentView.swift */; };
 		AB88696E267B95030015D53C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB88696D267B95030015D53C /* Assets.xcassets */; };
@@ -22,6 +25,8 @@
 		AB8869DA267BDB230015D53C /* BTPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88699D267B962D0015D53C /* BTPeripheralManager.swift */; };
 		AB8869DB267BDB2A0015D53C /* BTCentralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB886994267B95530015D53C /* BTCentralView.swift */; };
 		AB8869DD267CDDD70015D53C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8869C7267BD7800015D53C /* ContentView.swift */; };
+		AB8FA959269CCD9C00DEB749 /* SpotifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8FA958269CCD9C00DEB749 /* SpotifyView.swift */; };
+		ABE8701A269E9704001F1E8A /* SpotifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8FA958269CCD9C00DEB749 /* SpotifyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AB376DCF269CD6740070F26F /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = CentralApp/SpotifyiOS.framework; sourceTree = "<group>"; };
+		AB376DE7269DE3CE0070F26F /* SpotifyTrackInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpotifyTrackInfo.swift; path = ../../SpotifyApp/SpotifyApp/SpotifyTrackInfo.swift; sourceTree = "<group>"; };
 		AB886966267B95010015D53C /* CentralApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CentralApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB886969267B95010015D53C /* CentralAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralAppApp.swift; sourceTree = "<group>"; };
 		AB88696B267B95010015D53C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +73,8 @@
 		AB8869CE267BD7830015D53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB8869CF267BD7830015D53C /* CentralAppClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CentralAppClip.entitlements; sourceTree = "<group>"; };
 		AB8869D7267BD7D20015D53C /* CentralApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CentralApp.entitlements; sourceTree = "<group>"; };
+		AB8FA957269CCBD700DEB749 /* CentralApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CentralApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		AB8FA958269CCD9C00DEB749 /* SpotifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB376DD2269CD6CB0070F26F /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +96,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB376DC6269CD5060070F26F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB376DCF269CD6740070F26F /* SpotifyiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AB88695D267B95010015D53C = {
 			isa = PBXGroup;
 			children = (
 				AB886968267B95010015D53C /* CentralApp */,
 				AB8869C4267BD7800015D53C /* CentralAppClip */,
 				AB886967267B95010015D53C /* Products */,
+				AB376DC6269CD5060070F26F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,15 +126,18 @@
 		AB886968267B95010015D53C /* CentralApp */ = {
 			isa = PBXGroup;
 			children = (
+				AB376DE7269DE3CE0070F26F /* SpotifyTrackInfo.swift */,
 				AB8869D7267BD7D20015D53C /* CentralApp.entitlements */,
 				AB88699D267B962D0015D53C /* BTPeripheralManager.swift */,
 				AB886993267B95530015D53C /* BTCentralManager.swift */,
 				AB886994267B95530015D53C /* BTCentralView.swift */,
+				AB8FA958269CCD9C00DEB749 /* SpotifyView.swift */,
 				AB886969267B95010015D53C /* CentralAppApp.swift */,
 				AB88696B267B95010015D53C /* ContentView.swift */,
 				AB88696D267B95030015D53C /* Assets.xcassets */,
 				AB886972267B95030015D53C /* Info.plist */,
 				AB88696F267B95030015D53C /* Preview Content */,
+				AB8FA957269CCBD700DEB749 /* CentralApp-Bridging-Header.h */,
 			);
 			path = CentralApp;
 			sourceTree = "<group>";
@@ -250,11 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB376DE8269DE3CE0070F26F /* SpotifyTrackInfo.swift in Sources */,
 				AB886996267B95530015D53C /* BTCentralView.swift in Sources */,
 				AB88699E267B962D0015D53C /* BTPeripheralManager.swift in Sources */,
 				AB88696C267B95010015D53C /* ContentView.swift in Sources */,
 				AB88696A267B95010015D53C /* CentralAppApp.swift in Sources */,
 				AB886995267B95530015D53C /* BTCentralManager.swift in Sources */,
+				AB8FA959269CCD9C00DEB749 /* SpotifyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,10 +286,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABE8701A269E9704001F1E8A /* SpotifyView.swift in Sources */,
 				AB8869DB267BDB2A0015D53C /* BTCentralView.swift in Sources */,
 				AB8869DD267CDDD70015D53C /* ContentView.swift in Sources */,
 				AB8869DA267BDB230015D53C /* BTPeripheralManager.swift in Sources */,
 				AB8869D8267BDA5A0015D53C /* CentralAppApp.swift in Sources */,
+				AB376DE9269DE46E0070F26F /* SpotifyTrackInfo.swift in Sources */,
 				AB8869D9267BDB0B0015D53C /* BTCentralManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,17 +434,23 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CentralApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 4MUC8K263B;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CentralApp",
+				);
 				INFOPLIST_FILE = CentralApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.squarepi.CentralApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "CentralApp/CentralApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -433,18 +465,24 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CentralApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 4MUC8K263B;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CentralApp",
+				);
 				INFOPLIST_FILE = CentralApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.squarepi.CentralApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CentralApp/CentralApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -468,7 +506,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -492,7 +530,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

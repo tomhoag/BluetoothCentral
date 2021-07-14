@@ -25,6 +25,12 @@ struct ContentView: View {
                 .tabItem {
                     Label("BT", systemImage: "network")
                 }
+            
+            
+            SpotifyView().environmentObject(btcentral)
+                .tabItem {
+                    Label("Spotify", systemImage: "music.quarternote.3")
+                }
         }
     }
 }

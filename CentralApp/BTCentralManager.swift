@@ -7,7 +7,6 @@
 
 import Foundation
 import CoreBluetooth
-import SwiftUI
 
 public class BTCentralManager: NSObject, ObservableObject {
     
@@ -22,15 +21,24 @@ public class BTCentralManager: NSObject, ObservableObject {
     private var redChar: CBCharacteristic?
     private var greenChar: CBCharacteristic?
     private var blueChar: CBCharacteristic?
+    
+    private var trackInfoChar:CBCharacteristic?
+    private var trackAlbumArtChar:CBCharacteristic?
+    
 
     @Published var redValue:Double = 0
     @Published var greenValue:Double = 0
     @Published var blueValue:Double = 0
     
+    @Published var trackInfo:SpotifyTrackInfo = SpotifyTrackInfo(title: "--", artist: "--", album: "--", position: 0, duration: 0)
+    @Published var trackAlbumArt:SpotifyAlbumArt = SpotifyAlbumArt()
+    
+    var imageData = Data()
+    
     @Published var redReady = false
     @Published var greenReady = false
     @Published var blueReady = false
-        
+            
     public override init() {
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil)
@@ -96,6 +104,7 @@ extension BTCentralManager: CBCentralManagerDelegate {
         
         deviceMessage = ""
         statusMessage = "disovered peripheral"
+        
     }
     
     public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
@@ -105,7 +114,7 @@ extension BTCentralManager: CBCentralManagerDelegate {
             
         }
     }
-    
+        
 }
 
 extension BTCentralManager: CBPeripheralDelegate {
@@ -123,7 +132,10 @@ extension BTCentralManager: CBPeripheralDelegate {
                     peripheral.discoverCharacteristics(
                         [ BTPeripheralManager.redCharacteristicUUID,
                           BTPeripheralManager.greenCharacteristicUUID,
-                          BTPeripheralManager.blueCharacteristicUUID], for: service)
+                          BTPeripheralManager.blueCharacteristicUUID,
+                          SpotifyTrackInfo.characteristicUUID,
+                          SpotifyAlbumArt.characteristicUUID
+                        ], for: service)
                     return
                 }
             }
@@ -150,40 +162,121 @@ extension BTCentralManager: CBPeripheralDelegate {
                     blueChar = characteristic
                     blueReady = true
                     peripheral.readValue(for: characteristic)
+                    
+                } else if characteristic.uuid == SpotifyTrackInfo.characteristicUUID {
+                    statusMessage = "trackInfo characteristic found"
+                    trackInfoChar = characteristic
+                    peripheral.readValue(for:trackInfoChar!)
+                    
+                    peripheral.setNotifyValue(true, for: trackInfoChar!)
+                 
+                } else if characteristic.uuid == SpotifyAlbumArt.characteristicUUID {
+                    statusMessage = "trackAlbumArt characteristic found"
+                    trackAlbumArtChar = characteristic
+                    //peripheral.readValue(for:trackAlbumArtChar!)
+                    
+                    peripheral.setNotifyValue(true, for: trackAlbumArtChar!)
+                    
                 } else {
                     print("tf? \(characteristic.uuid)")
                 }
-                print(deviceMessage ?? "", statusMessage ?? "")
+                print("DeviceMessage: \(deviceMessage ?? "")")
+                print("StatusMessage: \(statusMessage ?? "")")
             }
             deviceMessage = ""
             
-
         }
     }
+    
+//    func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
+//        print("Error changing notification state: \(error?.localizedDescription)")
+//        
+//        // Exit if it's not the transfer characteristic
+//        guard characteristic.uuid.isEqual(transferCharacteristicUUID) else {
+//            return
+//        }
+//        
+//        // Notification has started
+//        if (characteristic.isNotifying) {
+//            print("Notification began on \(characteristic)")
+//        } else { // Notification has stopped
+//            print("Notification stopped on (\(characteristic))  Disconnecting")
+//            centralManager?.cancelPeripheralConnection(peripheral)
+//        }
+//    }
     
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard (error == nil) else {
             deviceMessage = "error reading characteristic"
-            print(deviceMessage ?? "", statusMessage ?? "")
-
+            print("didUpdateValueFor", error.debugDescription)
+            print("DeviceMessage: \(deviceMessage ?? "")")
+            print("StatusMessage: \(statusMessage ?? "")")
             return
         }
-        if let data = characteristic.value {
-            if let double = data.to(type: Double.self) {
-                switch characteristic.uuid {
-                case BTPeripheralManager.redCharacteristicUUID:
-                    redValue = double
-                case BTPeripheralManager.greenCharacteristicUUID:
-                    greenValue = double
-                case BTPeripheralManager.blueCharacteristicUUID:
-                    blueValue = double
-                default:
-                    print("unknown char")
+        
+        DispatchQueue.global(qos: .background).async { [self] in
+            if let data = characteristic.value {
+                if self.isColorCharacteristicUUID(characteristic.uuid), let double = data.to(type: Double.self) {
+                    switch characteristic.uuid {
+                    case BTPeripheralManager.redCharacteristicUUID:
+                        self.redValue = double
+                    case BTPeripheralManager.greenCharacteristicUUID:
+                        self.greenValue = double
+                    case BTPeripheralManager.blueCharacteristicUUID:
+                        self.blueValue = double
+                    default:
+                        print("unknown double char")
+                    }
+                    self.statusMessage = "read peripheral"
+                    
+                } else if characteristic == self.trackInfoChar {
+                    
+                    if let spotifyTrackInfo = SpotifyTrackInfo.fromData(data) {
+                        
+                        DispatchQueue.main.async {
+                            self.trackInfo = SpotifyTrackInfo(
+                                title: spotifyTrackInfo.title,
+                                artist: spotifyTrackInfo.artist,
+                                album: spotifyTrackInfo.album,
+                                position: spotifyTrackInfo.position,
+                                duration: spotifyTrackInfo.duration
+                            )
+                        }
+                    }
+                    
+                } else if characteristic == self.trackAlbumArtChar {
+                    
+                    let stringFromData = String(decoding: characteristic.value!, as: UTF8.self)
+                    
+                    // Have we got everything we need?
+                    if stringFromData.isEqual("EOM") {
+                        
+                        print("received EOM")
+                        // We have, so show the data,
+                        DispatchQueue.main.async {
+                            self.trackAlbumArt.imageData = self.imageData
+                            self.imageData = Data()
+                        }
+                    } else {
+                        // Otherwise, just add the data on to what we already have
+                        self.imageData.append(characteristic.value!)
+                        
+                        // Log it
+//                        print("Received: \(stringFromData)")
+                        print("received: \(self.imageData.count)")
+                    }
+                    
+                } else {
+                    print("didUpdateValueFor recd unknown charateristic??")
                 }
-                statusMessage = "read peripheral"
-                
             }
         }
+    }
+    
+    private func isColorCharacteristicUUID(_ uuid:CBUUID) -> Bool {
+        
+        return [BTPeripheralManager.redCharacteristicUUID, BTPeripheralManager.greenCharacteristicUUID, BTPeripheralManager.blueCharacteristicUUID].contains(uuid)
+        
     }
     
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?) {

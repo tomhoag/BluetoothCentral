@@ -12,9 +12,13 @@ struct ContentView: View {
     @EnvironmentObject var btcentral:BTCentralManager
         
     var body: some View {
-        BTCentralView(isAppClip: true).environmentObject(btcentral)
+//        BTCentralView(isAppClip: true).environmentObject(btcentral)
+//            .tabItem {
+//                Label("BT", systemImage: "network")
+//            }
+        SpotifyView(isAppClip: true).environmentObject(btcentral)
             .tabItem {
-                Label("BT", systemImage: "network")
+                Label("Spotify", systemImage: "music.quarternote.3")
             }
     }
 }
